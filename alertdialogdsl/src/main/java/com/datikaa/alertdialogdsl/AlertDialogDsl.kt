@@ -204,11 +204,11 @@ class AlertDialogDsl(context: Context) {
     }
 
     @AlertDialogMarker
-    fun multiChoiceItems(init: ChoiceItemBuilder.() -> Unit) {
-        val itemsBuilder = ChoiceItemBuilder()
+    fun multiChoiceItems(init: MultiChoiceItemBuilder.() -> Unit) {
+        val itemsBuilder = MultiChoiceItemBuilder()
         itemsBuilder.init()
-        val items = itemsBuilder.list.map { it.first }.toTypedArray()
-        val checkedItem = itemsBuilder.list.map { it.second }.toBooleanArray()
+        val items = itemsBuilder.items.map { it.first }.toTypedArray()
+        val checkedItem = itemsBuilder.items.map { it.second }.toBooleanArray()
         builder.setMultiChoiceItems(items, checkedItem, itemsBuilder.clickListener)
     }
 
@@ -250,12 +250,12 @@ class AlertDialogDsl(context: Context) {
     }
 
     @AlertDialogMarker
-    fun singleChoiceItems(init: ChoiceItemBuilder.() -> Unit) {
-        val itemsBuilder = ChoiceItemBuilder()
+    fun singleChoiceItems(init: SingleChoiceItemBuilder.() -> Unit) {
+        val itemsBuilder = SingleChoiceItemBuilder()
         itemsBuilder.init()
-        val items = itemsBuilder.list.map { it.first }.toTypedArray()
-        val checkedItem = itemsBuilder.list.map { it.second }.toBooleanArray()
-        builder.setMultiChoiceItems(items, checkedItem, itemsBuilder.clickListener)
+        val items = itemsBuilder.items.toTypedArray()
+        val selectedItem = itemsBuilder.selectedItem
+        builder.setSingleChoiceItems(items, selectedItem, itemsBuilder.clickListener)
     }
 
     @AlertDialogMarker
@@ -298,18 +298,41 @@ class AlertDialogDsl(context: Context) {
     }
 
     @AlertDialogMarker
-    class ChoiceItemBuilder {
-        val list = arrayListOf<Pair<CharSequence, Boolean>>()
+    class MultiChoiceItemBuilder {
+        val items = arrayListOf<Pair<CharSequence, Boolean>>()
         var clickListener: ((dialogInterface: DialogInterface, which: Int, isChecked: Boolean) -> Unit)? =
             null
 
         @AlertDialogMarker
         fun item(text: String, isChecked: Boolean) {
-            list.add(Pair(text, isChecked))
+            items.add(Pair(text, isChecked))
         }
 
         @AlertDialogMarker
         fun onItemClick(onItemClick: (dialogInterface: DialogInterface, which: Int, isChecked: Boolean) -> Unit) {
+            clickListener = onItemClick
+        }
+    }
+
+    @AlertDialogMarker
+    class SingleChoiceItemBuilder {
+        val items = arrayListOf<CharSequence>()
+        var selectedItem: Int = 0
+        var clickListener: ((dialogInterface: DialogInterface, which: Int) -> Unit)? =
+            null
+
+        @AlertDialogMarker
+        fun item(text: String) {
+            items.add(text)
+        }
+
+        @AlertDialogMarker
+        fun selectedItem(which: Int) {
+            selectedItem = which
+        }
+
+        @AlertDialogMarker
+        fun onItemClick(onItemClick: (dialogInterface: DialogInterface, which: Int) -> Unit) {
             clickListener = onItemClick
         }
     }

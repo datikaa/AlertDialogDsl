@@ -7,8 +7,8 @@ plugins {
 ext {
     mGroupId = "com.datikaa"
     mArtifactId = "alertdialogdsl"
-    mVersionCode = 2
-    mVersionName = "0.0.2"
+    mVersionCode = 3
+    mVersionName = "0.0.3"
 
     mLibraryName = "AlertDialog DSL"
     mLibraryDescription = "Simple Library for for a DSL layer above AlertDialog Builder"

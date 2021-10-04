@@ -4,6 +4,22 @@
 # AlertDialogDsl
 A simple Kotlin DSL layer above `AlertDialog.Builder`
 
+# Add it to your project
+
+Add it in your root build.gradle at the end of repositories:
+```gradle
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+```
+Add the dependency:
+```gradle
+dependencies {
+    implementation 'com.github.datikaa:AlertDialogDsl:0.0.5'
+}
+```
+Enjoy! :wink:
+
 # Basic usage
 For `Activity` and `Fragment` there are extension functions that will use the available `Context` object, so you don't have to provide it:
 

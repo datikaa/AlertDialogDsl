@@ -6,7 +6,7 @@ A simple Kotlin DSL layer above `AlertDialog.Builder`
 
 # Add it to your project
 
-Add it in your root build.gradle at the end of repositories:
+Add JitPack in your root build.gradle at the end of repositories:
 ```gradle
 repositories {
     maven { url 'https://jitpack.io' }

@@ -34,10 +34,10 @@ class SampleActivity : AppCompatActivity() {
             title("Title goes here")
             message("Resources can be used too just like for the buttons")
             positiveButton("Yes") { dialogInterface, which ->
-                Toast.makeText(this@MainActivity, "Yes clicked", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SampleActivity, "Yes clicked", Toast.LENGTH_SHORT).show()
             }
             negativeButton("No")  { dialogInterface, which ->
-                Toast.makeText(this@MainActivity, "No clicked", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SampleActivity, "No clicked", Toast.LENGTH_SHORT).show()
             }
             show()
         }

@@ -1,3 +1,5 @@
+![release workflow](https://github.com/datikaa/AlertDialogDsl/actions/workflows/release.yml/badge.svg)
+
 # AlertDialogDsl
 A simple Kotlin DSL layer above `AlertDialog.Builder`
 

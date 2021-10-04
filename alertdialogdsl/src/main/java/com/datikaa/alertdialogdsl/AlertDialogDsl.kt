@@ -317,7 +317,7 @@ class AlertDialogDsl(context: Context) {
     @AlertDialogMarker
     class SingleChoiceItemBuilder {
         val items = arrayListOf<CharSequence>()
-        var selectedItem: Int = 0
+        var selectedItem: Int = -1
         var clickListener: ((dialogInterface: DialogInterface, which: Int) -> Unit)? =
             null
 

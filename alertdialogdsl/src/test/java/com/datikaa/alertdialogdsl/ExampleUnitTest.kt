@@ -1,4 +1,4 @@
-package com.datikaa.alertdialogdls
+package com.datikaa.alertdialogdsl
 
 import org.junit.Test
 

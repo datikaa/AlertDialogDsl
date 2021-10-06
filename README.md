@@ -15,7 +15,7 @@ repositories {
 Add the dependency:
 ```gradle
 dependencies {
-    implementation 'com.github.datikaa:AlertDialogDsl:0.0.5'
+    implementation 'com.github.datikaa:AlertDialogDsl:0.0.6'
 }
 ```
 Enjoy! :wink:
@@ -69,7 +69,7 @@ alertDialog {
         item("Item 3", true)
         item("Item 4", false)
         onItemClick { dialogInterface, which, isChecked ->
-            Toast.makeText(this@MainActivity, "${list[which].first} is ${if (isChecked) "checked." else "not checked."}", Toast.LENGTH_LONG).show()
+            Toast.makeText(this@MainActivity, "${items[which].first} is ${if (isChecked) "checked." else "not checked."}", Toast.LENGTH_LONG).show()
         }
     }
     positiveButton("Accept") { dialogInterface, which ->
